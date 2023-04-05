@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import State from './State';
+import Login from './Login';
+import DollorToSum from './DollorToSum';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
 	<React.StrictMode>
-		<h1>Hello world</h1>
+		<DollorToSum />
 	</React.StrictMode>
 );
