@@ -6,6 +6,7 @@ class DollorToSum extends Component {
 		this.state = {
 			dollor: null,
 			sum: null,
+			age: null,
 		};
 	}
 
@@ -17,6 +18,10 @@ class DollorToSum extends Component {
 		const transfer = () => {
 			let result = 15000 * this.state.dollor;
 			this.setState(previous => ({ ...previous, sum: result }));
+		};
+
+		const Yosh = () => {
+			this.setState(previous => ({ ...previous, age: 2023 - this.state.dollor }));
 		};
 
 		return (
@@ -31,6 +36,8 @@ class DollorToSum extends Component {
 				) : (
 					''
 				)}
+				<button onClick={Yosh}>Get Age</button>
+				{this.state.age} yoshsiz
 			</div>
 		);
 	}
