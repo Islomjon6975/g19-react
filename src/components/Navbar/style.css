@@ -1,0 +1,63 @@
+.navbar__wrapper {
+	width: 100%;
+	background-color: #333;
+}
+
+.navbar__container {
+	max-width: 1440px;
+	width: 100%;
+	height: 80px;
+	margin: auto;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: white;
+}
+
+.logo {
+	font-size: 24px;
+}
+
+.nav-items {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.nav-item {
+	list-style-type: none;
+	font-size: 18px;
+}
+
+.nav-right {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.btn {
+	padding: 5px 10px;
+	border: none;
+	outline: none;
+	color: white;
+	background-color: black;
+}
+
+.basket {
+	background-color: blue;
+}
+
+.login {
+	background-color: crimson;
+}
+
+@media (max-width: 1000px) {
+	.login {
+		background-color: blue;
+	}
+
+	.basket {
+		background-color: crimson;
+	}
+}
