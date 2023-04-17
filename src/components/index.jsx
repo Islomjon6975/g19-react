@@ -3,15 +3,22 @@ import Navbar from './Navbar';
 import { Container } from './style';
 import Hero from './Hero';
 import PopularMovies from './PopularMovies';
+import Login from './Login';
 
 class Home extends Component {
 	render() {
 		return (
-			<Container>
-				<Navbar />
-				<Hero />
-				<PopularMovies />
-			</Container>
+			<>
+				{!localStorage.getItem('user_info') ? (
+					<Login />
+				) : (
+					<Container>
+						<Navbar />
+						<Hero />
+						<PopularMovies />
+					</Container>
+				)}
+			</>
 		);
 	}
 }

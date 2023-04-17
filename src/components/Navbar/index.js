@@ -1,9 +1,26 @@
 import React, { Component } from 'react';
 import { Container, Wrapper } from './style';
 import Button from '../Generic/Button/index.jsx';
+import { Spin } from 'antd';
 
 export default class Navbar extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isLoading: false,
+		};
+	}
+
 	render() {
+		const logout = () => {
+			this.setState(prev => ({ ...prev, isLoading: true }));
+			setTimeout(() => {
+				localStorage.removeItem('user_info');
+				this.setState(prev => ({ ...prev, isLoading: false }));
+				window.location.reload();
+			}, 2000);
+		};
+
 		return (
 			<Wrapper>
 				<Container>
@@ -22,7 +39,19 @@ export default class Navbar extends Component {
 					<Container.Column>
 						<Container.Column.Search />
 						<Container.Column.Notification />
-						<Button>Sign In</Button>
+						{!localStorage.getItem('user_info') ? (
+							<Button>Sign In</Button>
+						) : (
+							<Button type='primary' onClick={logout}>
+								{this.state.isLoading ? (
+									<>
+										<Spin /> Loading...
+									</>
+								) : (
+									'Log out'
+								)}
+							</Button>
+						)}
 					</Container.Column>
 				</Container>
 			</Wrapper>
