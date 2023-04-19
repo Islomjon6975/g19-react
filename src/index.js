@@ -4,6 +4,7 @@ import './index.css';
 import ClassComponent from './components/ClassComponent';
 import Hook from './components/Hook';
 import Calculator from './components/Calculator';
+import State from './components/State';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,6 +14,7 @@ root.render(
 			<ClassComponent />
 			<Hook />
 		</div> */}
-		<Calculator />
+		{/* <Calculator /> */}
+		<State />
 	</React.StrictMode>
 );
