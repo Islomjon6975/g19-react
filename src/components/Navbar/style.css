@@ -1,0 +1,26 @@
+.navbar {
+	width: 100%;
+	background-color: black;
+}
+
+.navbar__wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	max-width: 1440px;
+	padding: 40px 130px;
+	width: 100%;
+	margin: auto;
+	color: white;
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+nav ul li {
+	list-style-type: none;
+}
