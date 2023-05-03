@@ -1,19 +1,24 @@
 import { Drawer } from 'antd';
-import React, { useContext } from 'react';
-import { CartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
+import { useProductsContext } from '../../context/ProductsContext/ProductsContext';
 
 const Cart = () => {
-	const { openCart, setOpenCart } = useContext(CartContext);
+	const { openCart, setCartOpen } = useCartContext();
+	const { computers } = useProductsContext();
+
+	console.log(computers);
 
 	const onClose = () => {
-		setOpenCart(false);
+		setCartOpen(false);
 	};
 
 	return (
 		<Drawer title='Basic Drawer' placement='right' onClose={onClose} open={openCart}>
-			<p>Some contents...</p>
-			<p>Some contents...</p>
-			<p>Some contents...</p>
+			{computers.cart.map(computer => (
+				<p key={computer.id}>
+					{computer.id}. {computer.title} - ${computer.price} (x{computer.quantity})
+				</p>
+			))}
 		</Drawer>
 	);
 };

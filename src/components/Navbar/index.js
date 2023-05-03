@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
 import './style.css';
-import { ProductsContext } from '../../context/ProductsContext/ProductsContext';
-import { CartContext } from '../../context/CartContext';
+import { useProductsContext } from '../../context/ProductsContext/ProductsContext';
+import { useCartContext } from '../../context/CartContext';
+import { useUsersContext } from '../../context/UsersContext';
 
 const Navbar = () => {
-	const { computers } = useContext(ProductsContext);
-	const { setOpenCart } = useContext(CartContext);
+	const { computers } = useProductsContext();
+	const { setCartOpen } = useCartContext();
+	const { state } = useUsersContext();
 
 	return (
 		<>
@@ -22,8 +23,9 @@ const Navbar = () => {
 					</nav>
 
 					<div style={{ display: 'flex', gap: 20 }}>
+						<span>Users({state.users.length})</span>
 						<span>Products({computers.products.length})</span>
-						<div onClick={() => setOpenCart(true)}>Cart({computers.cart.length})</div>
+						<div onClick={() => setCartOpen(true)}>Cart({computers.cart.length})</div>
 					</div>
 				</div>
 			</header>

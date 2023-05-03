@@ -1,15 +1,12 @@
-import React, { useContext } from 'react';
 import './style.css';
-import { ProductsContext } from '../../context/ProductsContext/ProductsContext';
+import { useProductsContext } from '../../context/ProductsContext/ProductsContext';
 
 const Products = () => {
-	const { computers, setComputers } = useContext(ProductsContext); // useState({ products: products || [], cart: [] });
+	const { computers, setComputers } = useProductsContext();
 
 	const addToCart = product => {
 		setComputers(prev => ({ ...prev, cart: [...prev.cart, product] }));
 	};
-
-	console.log(computers);
 
 	return (
 		<div className='products_wrapper'>

@@ -1,7 +1,8 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { products } from '../../utils/products';
 
-export const ProductsContext = createContext();
+const ProductsContext = createContext();
+export const useProductsContext = () => useContext(ProductsContext);
 
 function ProductsContextProvider({ children }) {
 	const [computers, setComputers] = useState({ products: products || [], cart: [] });
